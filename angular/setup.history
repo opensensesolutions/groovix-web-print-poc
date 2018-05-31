@@ -1,0 +1,433 @@
+    1  cd try4a/
+    2  ls
+    3  npm install -g @angular/cli
+    4  sudo npm install -g @angular/cli
+    5  ng new webprint
+    6  ng serve 0.0.0.0
+    7  cd webprint/
+    8  ng serve 0.0.0.0
+    9  ng serve --host 0.0.0.0
+   10  ng serve --host 0.0.0.0 --disableHostCheck true 
+   11  ls
+   12  cd src/app/
+   13  ls
+   14  mkdir orig
+   15  cp *.ts orig
+   16  mkdir tmp
+   17  cd tmp/
+   18  git clone https://gist.github.com/51afc6b17d89d4dc6f3968ede5d789b6.git
+   19  ls
+   20  ls 51afc6b17d89d4dc6f3968ede5d789b6/
+   21  cd ..
+   22  ls
+   23  vi app.component.html tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.html 
+   24  cp tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.html app.component.html 
+   25  vi tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.ts app.component.ts 
+   26  cp tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.ts app.component.ts 
+   27  cp tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.service.ts app.service.ts
+   28  vi app.service.ts 
+   29  find .. -name "*.service.ts"
+   30  cd ../..
+   31  find . -name "*.service.ts"
+   32  ng serve --host 0.0.0.0 --disableHostCheck true 
+   33  rgrep AppComponent src/app/
+   34  vi src/app/app.component.*
+   35  cd src/app/
+   36  ls -lart *component*
+   37  rgrep AppCom ./
+   38  vi app.component.spec.ts app.module.ts 
+   39  ls tmp/51afc6b17d89d4dc6f3968ede5d789b6/
+   40  ls
+   41  rgrep service.ts ./
+   42  rgrep app.service ./
+   43  rgrep service ./
+   44  cp -rp tmp/51afc6b17d89d4dc6f3968ede5d789b6/ tmp/2
+   45  vi tmp/2/*
+   46  find ../../.. -name "*servic*"
+   47  find ../../.. -name "services"
+   48  vi tmp/2/*
+   49  ls
+   50  vi tmp/2/*
+   51  ls -lart tmp/2/
+   52  cp tmp/2/file-uploader.component.ts app.component.ts 
+   53  cd ../..
+   54  ng serve --host 0.0.0.0 --disableHostCheck true 
+   55  rgrep AppComponent ./
+   56  rgrep AppComponent src/app/
+   57  ng serve --host 0.0.0.0 --disableHostCheck true 
+   58  rgrep file-up *
+   59  grep file-up *
+   60  cd src/app/
+   61  grep file-up *
+   62  rgrep file-up *
+   63  rgrep AppCom ./
+   64  vi ./orig/app.module.ts ./app.module.ts
+   65  diff ./orig/app.module.ts ./app.module.ts
+   66  vi app.module.ts ./orig/app.module.ts
+   67  diff -r ./ orig/
+   68  diff -r ./ orig/| grep Only
+   69  diff -r ./ orig/| grep diff
+   70  grep service ./
+   71  grep service *
+   72  diff -r ./ orig/| grep diff
+   73  ls tmp/2/
+   74  ls
+   75  diff app.component.html orig/app.component.h
+   76  ls tmp/2/
+   77  vi app.component.html 
+   78  ls tmp/2/
+   79  vi app.component.ts 
+   80  diff app.component.ts  orig/app.component.ts 
+   81  diff app.component.ts  orig/app.component.ts  | less
+   82  vi app.component.ts  orig/app.component.ts  
+   83  ls
+   84  grep AppCom ./
+   85  grep AppCom *
+   86  ls -lart
+   87  ls tmp/2/
+   88  ls
+   89  grep service ./
+   90  grep service *
+   91  vi app.component.ts 
+   92  vi app.service.ts 
+   93  ln -s app.service.ts  webprint.service.ts
+   94  vi app.component.ts 
+   95  grep webprint ./
+   96  grep webprint *
+   97  ng serve --host 0.0.0.0 --disableHostCheck true 
+   98  mkdir ../../../files
+   99  mv tmp/ ../../../files/
+  100  ng serve --host 0.0.0.0 --disableHostCheck true 
+  101  cd ../..
+  102  ng serve --host 0.0.0.0 --disableHostCheck true 
+  103  cd src/app/
+  104  vi app.service.ts 
+  105  ls -l app.service.ts webprint.service.ts 
+  106  vi app.component.ts 
+  107  ls
+  108  cd ..
+  109  cp -rp app/ ~/try4a/files/bad1/
+  110  ls
+  111  pwd
+  112  cd app/
+  113  ls
+  114  mv orig/ ~/try4a/files/
+  115  cp ~/try4a/files/orig/app.* ./
+  116  ls
+  117  ls -lart
+  118  rm webprint.service.ts 
+  119  ls -lart
+  120  ls
+  121  ng serve --host 0.0.0.0 --disableHostCheck true 
+  122  vi app.service.ts 
+  123  ng serve --host 0.0.0.0 --disableHostCheck true 
+  124  vi app.service.ts 
+  125  mkdir ../../globals
+  126  ng serve --host 0.0.0.0 --disableHostCheck true 
+  127  vi app.service.ts 
+  128  vi ../../globals.ts
+  129  ng serve --host 0.0.0.0 --disableHostCheck true 
+  130  vi app.service.ts 
+  131  ng serve --host 0.0.0.0 --disableHostCheck true 
+  132  rm ../../globals.ts 
+  133  rmdir ../../globals
+  134  ng serve --host 0.0.0.0 --disableHostCheck true 
+  135  vi app.service.ts 
+  136  ng serve --host 0.0.0.0 --disableHostCheck true 
+  137  ls
+  138  vi app.component.html 
+  139  ng serve --host 0.0.0.0 --disableHostCheck true 
+  140  ls ~/try4a/files/
+  141  diff ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.html  app.component.html 
+  142  diff ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.service.ts app.service.ts 
+  143  diff ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.ts app.component.ts 
+  144  vi ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.ts app.component.ts 
+  145  cp ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.component.ts app.component.ts 
+  146  vi app.component.ts 
+  147  ng serve --host 0.0.0.0 --disableHostCheck true 
+  148  vi app.component.ts 
+  149  grep AppComponent *
+  150  rm app.component.spec.ts 
+  151  vi app.module.ts 
+  152  rm app.module.ts 
+  153  ls
+  154  rm app.component.css 
+  155  ng serve --host 0.0.0.0 --disableHostCheck true 
+  156  ls
+  157  cp ~/try4a/files/orig/app.module.ts ./
+  158  ng serve --host 0.0.0.0 --disableHostCheck true 
+  159  grep service ./
+  160  grep service *
+  161  vi app.component.ts 
+  162  ng serve --host 0.0.0.0 --disableHostCheck true 
+  163  vi app.component.ts 
+  164  ln -s app.service.ts webprint.ts
+  165  ng serve --host 0.0.0.0 --disableHostCheck true 
+  166  ls -l
+  167  ln -s app.component.html file-uploader.html
+  168  ng serve --host 0.0.0.0 --disableHostCheck true 
+  169  ls -l
+  170  ln -s app.component.html file-uploader.component.html 
+  171  rm file-uploader.html 
+  172  ng serve --host 0.0.0.0 --disableHostCheck true 
+  173  vi app.service.ts 
+  174  vi app.component.ts 
+  175  ng serve --host 0.0.0.0 --disableHostCheck true 
+  176  vi app.service.ts 
+  177  cd ..
+  178  cp -rp app/ ~/try4a/files/bad2
+  179  ls
+  180  cd app/
+  181  ls
+  182  rm *
+  183  ls
+  184  cd
+  185  mkdir try5a
+  186  cd try5a/
+  187  ls
+  188  ng new file-upload
+  189  cd file-upload/src/app/
+  190  ls
+  191  cd ..
+  192  cp -rp app/ ~/try5a/orig
+  193  ng serve --host 0.0.0.0 --disableHostCheck true 
+  194  ls
+  195  cd app/
+  196  ls
+  197  cp ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/* ./
+  198  ls
+  199  ng serve --host 0.0.0.0 --disableHostCheck true 
+  200  grep Subscription ~/try4a/files/bad2/
+  201  rgrep Subscription ~/try4a/files/bad2/
+  202  vi file-uploader.service.ts 
+  203  ng serve --host 0.0.0.0 --disableHostCheck true 
+  204  mkdir ../services
+  205  mv file-uploader.service.ts ../services/
+  206  ng serve --host 0.0.0.0 --disableHostCheck true 
+  207  cd ..
+  208  cp -rp app/ ~/try5a/ok1
+  209  cd app/
+  210  ls
+  211  mv file-uploader.component.html app.component.html 
+  212  mv file-uploader.component.ts app.component.ts 
+  213  ng serve --host 0.0.0.0 --disableHostCheck true 
+  214  grep AppComponent ./
+  215  grep AppComponent *
+  216  vi app.component.spec.ts 
+  217  grep file-upload *
+  218  vi app.component.ts 
+  219  cd ..
+  220  cp -rp app/ ~/try5a/2bad
+  221  ls
+  222  cd app/
+  223  ls
+  224  rm *
+  225  cp ~/try5a/orig/* ./
+  226  ng serve --host 0.0.0.0 --disableHostCheck true 
+  227  cd ..
+  228  ls
+  229  mkdir file-upload
+  230  cp ~/try5a/2bad/app.component.html file-upload/file-upload.component.html
+  231  cp ~/try5a/2bad/app.component.ts file-upload/file-upload.component.ts
+  232  ng serve --host 0.0.0.0 --disableHostCheck true 
+  233  cd ~/
+  234  mkdir try6a
+  235  cd try6a/
+  236  ls
+  237  ng new file-upload
+  238  ls
+  239  cd file-upload/
+  240  ls
+  241  cd src/app/
+  242  cd ..
+  243  cd app/
+  244  ls
+  245  cp -rp ./ ../../../orig/
+  246  ls
+  247  cp ~/try5a/ok1/app.component.html ./
+  248  cp ~/try5a/ok1/app.component.ts ./
+  249  cp -rp ~/try5a/file-upload/src/services/
+  250  ng serve --host 0.0.0.0 --disableHostCheck true 
+  251  vi app.component.html 
+  252  cp ~/try5a/2bad/app.component.ts  ./
+  253  cp ~/try5a/2bad/app.component.html ./
+  254  ng serve --host 0.0.0.0 --disableHostCheck true 
+  255  cp ../../../orig/app.component.ts ./
+  256  ng serve --host 0.0.0.0 --disableHostCheck true 
+  257  vi ~/try5a/2bad/app.component.ts  app.component.ts 
+  258  cp ~/try5a/2bad/app.component.ts  app.component.ts 
+  259  vi app.component.ts 
+  260  ng serve --host 0.0.0.0 --disableHostCheck true 
+  261  vi app.component.ts 
+  262  grep AppCom ./
+  263  grep AppCom *
+  264  vi app.module.ts 
+  265  vi app.component.spec.ts 
+  266  rgrep Entry ./
+  267  rgrep ntry .
+  268  vi app.component.ts 
+  269  vi app.module.ts 
+  270  vi app.component.ts 
+  271  rgrep FileUploaderComponent ./
+  272  vi app.component.ts 
+  273  ng serve --host 0.0.0.0 --disableHostCheck true 
+  274  mkdir ../services
+  275  cp ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/file-uploader.service.ts ../services/
+  276  ng serve --host 0.0.0.0 --disableHostCheck true 
+  277  rgrep Subscription ~/try4a/files/bad2/
+  278  cp /home/gxuser/try5a/file-upload/src/services/file-uploader.service.ts  ../services/
+  279  ng serve --host 0.0.0.0 --disableHostCheck true 
+  280  ln -s app.component.html  file-uploader.component.html
+  281  ng serve --host 0.0.0.0 --disableHostCheck true 
+  282  cp -rp ./ ~/try6a/compiles-ok-1
+  283  ng serve --host 0.0.0.0 --disableHostCheck true 
+  284  ls
+  285  ln -s app.component.ts file-uploader.component.ts
+  286  ng serve --host 0.0.0.0 --disableHostCheck true 
+  287  vi file-uploader.component.ts 
+  288  ls
+  289  vi app.component.html 
+  290  grep FileUpload ./
+  291  grep FileUpload *
+  292  vi ../services/file-uploader.service.ts
+  293  cd ../..
+  294  rgrep "FileUpload" ./
+  295  rgrep "FileUpload" ./| grep -v oader
+  296  vi README.md 
+  297  ls
+  298  cd src/app/
+  299  ls
+  300  vi app.component.ts 
+  301  ng serve --host 0.0.0.0 --disableHostCheck true 
+  302  ls
+  303  vi app.component.ts 
+  304  cd ..
+  305  ln -s app/ file-uploader
+  306  ng serve --host 0.0.0.0 --disableHostCheck true 
+  307  vi *.html
+  308  rgrep "FileUpload" ./| grep -v oader
+  309  ls
+  310  ls -l
+  311  vi index.html 
+  312  vi main.ts 
+  313  cd app/
+  314  ls
+  315  vi app.component.ts 
+  316  ng serve --host 0.0.0.0 --disableHostCheck true 
+  317  vi app.component.ts 
+  318  ng serve --host 0.0.0.0 --disableHostCheck true 
+  319  vi app.component.ts 
+  320  rgrep file-uploader ./
+  321  grep ootstrap ./
+  322  grep ootstrap *
+  323  vi app.module.ts 
+  324  vi app.component.ts 
+  325  ng serve --host 0.0.0.0 --disableHostCheck true 
+  326  grep elector ../../../orig/
+  327  rgrep elector ../../../orig/
+  328  vi ../../../orig/app.component.ts app.component.ts 
+  329  ng serve --host 0.0.0.0 --disableHostCheck true 
+  330  grep FileUploaderService ./
+  331  grep FileUploaderService *
+  332  vi app.component.ts 
+  333  rgrep FileUploader ./
+  334  rgrep FileUploaderC ./
+  335  vi app.component.ts 
+  336  vi ../services/file-uploader.service.ts 
+  337  vi app.component.ts 
+  338  rgrep app-root ./
+  339  vi app.component.ts 
+  340  vi ../services/file-uploader.service.ts 
+  341  ng serve --host 0.0.0.0 --disableHostCheck true 
+  342  rgrep HttpClient
+  343  rgrep HttpClient ../
+  344  vi ../services/file-uploader.service.ts 
+  345  vi app.component.ts 
+  346  ng serve --host 0.0.0.0 --disableHostCheck true 
+  347  vi app.component.ts 
+  348  vi ../services/file-uploader.service.ts 
+  349  ng serve --host 0.0.0.0 --disableHostCheck true 
+  350  cd
+  351  mkdir try7
+  352  cd try7/
+  353  ng new try7
+  354  cd try7/
+  355  ls
+  356  cd src/app/
+  357  ng serve --host 0.0.0.0 --disableHostCheck true 
+  358  ng generate component file-uploader
+  359  cp -rp file-uploader/ ../../../fu.orig
+  360  cd file-uploader/
+  361  ls
+  362  ng serve --host 0.0.0.0 --disableHostCheck true 
+  363  ls
+  364  cp ~/try4a/files/tmp/51afc6b17d89d4dc6f3968ede5d789b6/* ./
+  365  ng serve --host 0.0.0.0 --disableHostCheck true 
+  366  mkdir ../services
+  367  mv file-uploader.service.ts ../services/
+  368  cp ~/try6a/file-upload/src/services/file-uploader.service.ts ../services/file-uploader.service.ts 
+  369  ng serve --host 0.0.0.0 --disableHostCheck true 
+  370  vi ../app.component.ts 
+  371  vi ../app.component.html 
+  372  ng serve --host 0.0.0.0 --disableHostCheck true 
+  373  vi file-uploader.component.ts 
+  374  rgrep elector ..
+  375  rgrep FileUploaderService ..
+  376  rgrep rovider ..
+  377  vi ../app.module.ts 
+  378  ng serve --host 0.0.0.0 --disableHostCheck true 
+  379  vi ../app.module.ts 
+  380  ls
+  381  vi file-uploader.component.ts 
+  382  ng serve --host 0.0.0.0 --disableHostCheck true 
+  383  cd ..
+  384  cp -rp app/ ~/try7/compiles-ok-1
+  385  cd app/
+  386  ls
+  387  vi file-uploader/file-uploader.component.ts 
+  388  ng serve --host 0.0.0.0 --disableHostCheck true 
+  389  vi file-uploader/file-uploader.component.ts 
+  390  ng serve --host 0.0.0.0 --disableHostCheck true 
+  391  history
+  392  vi file-uploader/file-uploader.component.
+  393  vi file-uploader/file-uploader.component.ts 
+  394  ng serve --host 0.0.0.0 --disableHostCheck true 
+  395  vi file-uploader/file-uploader.component.ts 
+  396  ng serve --host 0.0.0.0 --disableHostCheck true 
+  397  vi file-uploader/file-uploader.component.ts 
+  398  vi app.component.ts 
+  399  rgrep rovider ./
+  400  vi app.module.ts 
+  401  cd file-uploader/
+  402  ls
+  403  vi ../app.module.ts 
+  404  vi file-uploader.component.ts 
+  405  ng serve --host 0.0.0.0 --disableHostCheck true 
+  406  l
+  407  vi ../app.module.ts 
+  408  ng serve --host 0.0.0.0 --disableHostCheck true 
+  409  vi ../app.module.ts 
+  410  ls -l ../app.module.ts 
+  411  date
+  412  ng serve --host 0.0.0.0 --disableHostCheck true 
+  413  ls
+  414  vi file-uploader.component.spec.ts 
+  415  vi file-uploader.component.ts 
+  416  vi ../services/file-uploader.service.ts 
+  417  vi file-uploader.component.ts 
+  418  ng serve --host 0.0.0.0 --disableHostCheck true 
+  419  vi file-uploader.component.ts 
+  420  vi ../services/file-uploader.service.ts 
+  421  vi file-uploader.component.ts 
+  422  ng serve --host 0.0.0.0 --disableHostCheck true 
+  423  history | grep 0.0.0
+  424  su
+  425  ng serve --host 0.0.0.0 --disableHostCheck true 
+  426  history
+  427  vi file-uploader.component.html 
+  428  ng serve --host 0.0.0.0 --disableHostCheck true 
+  429  pwd
+  430  cd
+  431  cd try7/try7/
+  432  ls
+  433  history > setup.history

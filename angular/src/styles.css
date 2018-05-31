@@ -1,0 +1,208 @@
+
+
+#groovix-web-print-logo {
+   width: 256px;
+}
+
+
+.button-green {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#queue-table {
+	margin-top: 20px;
+	margin-bottom: 10px;
+/*
+	background: #FFFFFF;
+            border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+*/
+}
+
+#queue-table th  {
+border-bottom: 1px solid #CCCCCC;;
+padding: 2px;
+}
+
+#queue-table td  {
+padding: 10px;
+/*debugging  border: 1px solid black;*/
+}
+
+#queue-table tr {
+line-height: 25px; 
+}
+
+
+.full-width {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+.button {
+  background-color: #eee;
+  border:  1px solid #888888;
+  padding: 10px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  cursor: hand;
+}
+.button:hover {
+  background-color: #cccccc;
+}
+.button:disabled {
+  background-color: #eeeeee;
+  color: #aaaaaa;
+  cursor: auto;
+}
+
+label.customFileInput input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+/***** Example custom styling *****/
+.customFileInput {
+    border: 1px solid #AAA;
+    border-radius: 3px;
+    padding: 10px 10px;
+    margin: 2px;
+    background: #eeeeee;
+    display: inline-block;
+}
+.customFileInput:hover {
+    background: #CCC;
+}
+.customFileInput:active {
+    background: #CCF;
+}
+.customFileInput :invalid + span {
+    color: #AAAAAA;
+}
+.customFileInput :valid + span {
+    color: #444444;
+
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#report-done {
+        /*visibility: hidden;*/
+	padding-top: 50px;
+}
+
+#clear-queue {
+	padding-top: 30px;
+}
+
+
+.file-upload-button {
+    margin-top: 40px;
+    padding: 30px;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    background: transparent;
+    font-size: 66px;
+    padding-top: 0px;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 228, 0); 
+    color: rgb(255, 228, 0);
+}
+
+.file-upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.icon-cancel-circled {
+background-image: url("assets/images/green.png");
+}
+
+
+.tag-default {
+background-color: #eeeeee;
+}
+.tag-success {
+//background-color:green; 
+background-image: url("assets/images/green.png") ;
+height: 200px;
+width: 200px;
+}
+
+.tag-warning {
+background-color: red;
+}
+.tag-danger {
+background-color: red;
+}
+
+/*
+
+.icon-up-circled2 {
+background-size:100% 100%;
+display: block;
+min-height: 100%;
+min-width: 100%;
+background-image: url("assets/images/green.png")   ;
+ background-repeat: no-repeat;
+background-position: center;
+ background-size: cover;
+ position: absolute;
+}
+
+.icon-up-circled {
+background-image: url("assets/images/green.png")  ;
+ background-repeat: no-repeat;
+background-position: center;
+background-size:100%;
+
+}
+
+.td-action {
+display:block;
+border: 3px solid black;
+background-color: yellow;
+height: 32px;
+width: 32px;
+}
+*/
+
+.specify-user-box {
+margin: 20px;
+}
+
+.specify-printer-box {
+margin: 20px;
+}
+
+.action-icon {
+height: 24px;
+}
+.status-icon {
+height: 24px;
+vertical-align:middle;
+}

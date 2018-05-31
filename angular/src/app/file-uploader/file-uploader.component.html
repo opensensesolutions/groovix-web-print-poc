@@ -1,0 +1,106 @@
+<div class="row">
+
+
+    <div class="col-md-3">
+
+    <img id="groovix-web-print-logo" src="/assets/images/groovix-web-print.png">
+
+<!-- simple approach using built in file chooser - drag and drop works - but hard to customize look of it 
+        <input id="input-file-chooser" type="file" #fileInput multiple (change)="addToQueue()" />
+-->
+
+<!-- 
+angular approach using a directive from https://stackoverflow.com/questions/21842274/cross-browser-custom-styling-for-file-upload-button
+<div class="file-upload-container">
+   <button class="file-upload-button"></button>
+   <input class="file-upload-input" id="file-upload" type="file"  #fileInput multiple (change)="addToQueue()" /> 
+</div>
+-->
+
+    <div class="specify-user-box">
+       Barcode:
+       <input type="text"  id="username" #username class = "form-control"  name = "username" >
+    </div>
+    <div class="specify-printer-box">
+   Printer:
+  <select id="printer" #printer name="printer">
+    <option value="PDF">DEBUG</option>
+  </select>
+    </div>
+
+<!-- this lets you customize button but breaks drag and drop - however I don't think drag and drop wouldn't work well on mobile anyways -->
+<label class="customFileInput">
+        <input  id="input-file-chooser" type="file" #fileInput multiple (change)="addToQueue()" />
+     <span class="unselectable">Choose Files To Print</span> 
+</label>
+    </div>
+
+
+    <div *ngIf="uploader.isQueueEmpty() == false" class="col-md-9">
+        <!--<h3>Upload queue</h3>-->
+        <table id="queue-table" class="full-width mb-3">
+            <thead>
+            <tr>
+                <th class="text-left">Filename</th>
+                <!--<th class="text-right">Size</th>-->
+                <!--<th class="text-left">Progress</th>-->
+                <th class="text-left">Status</th>
+                <!--<th class="text-right">Actions</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of queue | async">
+                <td>{{ item?.file?.name }}</td>
+                <!--<td class="text-right">{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>-->
+                <!--<td>{{ item.progress + ' %' }}</td>-->
+                <td>
+                    <!--
+                    <img *ngIf="1 == 0" src="assets/images/green.png" > 
+                    <span *ngIf="1 == 1" class=tag-success> abc def</span>
+                    -->
+                    <img class="status-icon" *ngIf="item.isPending()" src="/assets/images/upload-icons/pending.png" title="{{ item.result }}" > 
+                    <img class="status-icon" *ngIf="item.isSuccess()" src="/assets/images/upload-icons/complete.png" title="{{ item.result }}" > 
+                    <img class="status-icon" *ngIf="item.inProgress()" src="/assets/images/upload-icons/progress.gif" title="{{ item.result }}"> 
+                    <img class="status-icon" *ngIf="item.isError()" src="/assets/images/upload-icons/error.png" title="{{ item.result }}" > 
+                    <img class="status-icon" *ngIf="item.isErrorPrint()" src="/assets/images/upload-icons/error.png" title="{{ item.result }}" > 
+                    <!--
+                    <span *ngIf="item.isPending()" class="tag tag-default"></span>
+                    <span *ngIf="item.isSuccess()" class="tag tag-success"></span>
+                    <span *ngIf="item.inProgress()" class="tag tag-warning"></span>
+                    <span *ngIf="item.isError()" class="tag tag-danger"></span>
+                    -->
+
+                </td>
+		<!--
+                <td class="text-right td-action">
+                    {{ item.result }}
+                    <a class="icon-action" tooltip="Upload file" (click)="item.upload()" *ngIf="item.isUploadable()">
+                        <img class="action-icon" src="assets/images/green.png">
+                    </a>
+                    <a class="icon-action" tooltip="Cancel upload" (click)="item.cancel()" *ngIf="item.inProgress()">
+                        <i class="icon-cancel-circled">cancel</i>
+                    </a>
+                    <a class="icon-action" tooltip="Remove from queue" (click)="item.remove()" *ngIf="!item.inProgress()">
+                        <i class="icon-trash-empty">remove</i>
+                    </a>
+                </td>
+		-->
+            </tr>
+            </tbody>
+        </table>
+       <!--
+        <div>
+            <a class="button unselectable" (click)="uploader.uploadAll()">Submit Files for Printing</a>
+        </div>
+       -->
+      </div>
+        <!-- theres no easy way to know when we're really done - would have to loop through queue and look at status of each object 
+        <div *ngIf="uploader.doneProcessing()" id="report-done" >
+		Your files have been submitted for printing.
+        </div>
+        -->
+        <div id="clear-queue">
+            <a class="button unselectable " (click)="uploader.clearQueue()">Logout</a>
+        </div>
+
+</div>
