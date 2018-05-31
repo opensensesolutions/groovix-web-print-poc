@@ -1,0 +1,17 @@
+
+sudo pip install django
+
+sudo pip install djangorestframework
+
+sudo pip install django-cors-headers
+
+source ../myenv/bin/activate
+
+#change ALLOWED_HOSTS - set to current ip or hostname
+~/django/fileupload$ vi fileupload/settings.py 
+
+./manage.py runserver 0.0.0.0:8000
+
+
+
+

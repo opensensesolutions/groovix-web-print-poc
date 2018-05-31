@@ -1,0 +1,19 @@
+
+
+
+
+sudo apt-get install npm
+
+#for compatibility, this is not an old version of nodejs which is a separate not-too-old package
+sudo apt-get install nodejs-legacy
+
+#need newer version of nodejs though: 
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh 
+sudo apt-get install nodejs
+
+
+
+
+sudo npm install -g @angular/cli
+

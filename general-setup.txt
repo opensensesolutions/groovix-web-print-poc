@@ -1,0 +1,6 @@
+to use DEBUG printer set up cups PDF printer 
+
+output will go to:
+
+/var/spool/cups-pdf/ANONYMOUS
+

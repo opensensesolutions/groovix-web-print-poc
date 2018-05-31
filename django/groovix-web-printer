@@ -1,0 +1,140 @@
+#!/bin/bash
+#echo args are $@
+#MYFILE=$1
+#MYUSER=$2
+#MYPRINTER=$3
+
+######################################################################################
+#parse command line arguments
+until [ -z "$1" ]
+do
+  CURARG=$1
+  case "$CURARG" in
+    "--restart")        MYRESTART=1  ;;
+    "--file="* )        MYFILE=${CURARG#*=} ;;
+    "--file"   ) shift; MYFILE=$1 ;;
+    "--printer="* )        MYPRINTER=${CURARG#*=} ;;
+    "--printer"   ) shift; MYPRINTER=$1 ;;
+    "--username="* )        MYUSER=${CURARG#*=} ;;
+    "--username"   ) shift; MYUSER=$1 ;;
+  esac
+  shift
+done
+#handle undefined variables
+#for booleans, undefined or "" is the only boolean false, test using: if [ $MYFLAG ]
+
+if [ -z "$MYFILE" ] ; then 
+	echo "usage: $0 --file=<filenametoprint.jpg> [--printer=<print-queue>]  [--user=<username>]"
+	exit 63
+fi
+
+#for list of printers see:
+#lpstat -p -d
+if [ -n "$MYPRINTER" ] ; then
+	MYPRINTEROPTS=" -d $MYPRINTER "
+else
+	MYPRINTEROPTS="  "
+fi
+if [ -n "$MYUSER" ] ; then
+	# NOTE: specifying a user makes the test pdf printer not work!  but normal printers seem OK, probably a permissions issue with where it puts the pdfs
+	MYUSEROPTS=" -U $MYUSER "
+else
+	MYUSEROPTS="  "
+fi
+######################################################################################
+
+
+#
+LOGFILE=/tmp/groovix-web-printer.log
+
+
+#
+FILETYPE=$(xdg-mime query filetype $MYFILE 2> /dev/null)
+DEFAULTAPP=$(xdg-mime query default $FILETYPE 2>/dev/null)
+
+
+if [[ "$FILETYPE" == "image/jpg" ]] ; then 
+	HANDLER="lp -o orientation-requested=3  "
+elif [[ "$FILETYPE" == "image/jpeg" ]] ; then 
+	HANDLER="lp -o orientation-requested=3  "
+elif [[ "$FILETYPE" == "image/gif" ]] ; then 
+	HANDLER="lp -o orientation-requested=3  "
+elif [[ "$FILETYPE" == "image/png" ]] ; then 
+	HANDLER="lp -o orientation-requested=3  "
+
+elif [[ "$FILETYPE" == "application/pdf" ]] ; then 
+	HANDLER="lp  "
+elif [[ "$FILETYPE" == "application/postscript" ]] ; then 
+	HANDLER="lp  "
+
+elif [[ "$FILETYPE" == "text/plain" ]] ; then 
+	HANDLER="loffice"
+elif [[ "$FILETYPE" == "text/html" ]] ; then 
+	HANDLER="loffice"
+
+elif [[ "$DEFAULTAPP" == libreoffice* ]] ; then
+	HANDLER="loffice"
+
+else
+	HANDLER="echo unsupported file type, "
+	UNSUPPORTED="true"
+fi
+
+if [[ "$HANDLER" == "loffice" ]]  ; then
+	HANDLER="lp "
+	#MYFILE=$(loffice --headless --convert-to pdf $MYFILE | tail -n 1 | cut -f 2 -d: )
+	OUTDIR=$(dirname "$MYFILE")
+	echo loffice --headless --convert-to pdf --outdir "$OUTDIR" "$MYFILE" 
+	echo loffice --headless --convert-to pdf --outdir "$OUTDIR" "$MYFILE" >> $LOGFILE 2>&1
+	loffice --headless --convert-to pdf --outdir "$OUTDIR" "$MYFILE" >> $LOGFILE 2>&1
+        LOFFICERC=$?
+        echo loffice RC is $LOFFICERC 
+        echo loffice RC is $LOFFICERC >> $LOGFILE 2>&1
+
+	# deal with no extension at all
+        #EXTCHECK=$([[ "$MYFILE" = *.* ]] && echo ".${MYFILE##*.}" || echo '')
+	#echo EXTCHECK = $EXTCHECK
+	#if [ -z "$EXTCHECK" ] ; then
+	#	EXTRADOT="."
+	#else
+	#	EXTRADOT=""
+	#fi
+
+	#MYEXT=${MYFILE##*.}
+ 	MYEXT=$([[ "$MYFILE" = *.* ]] && echo ".${MYFILE##*.}" || echo '')
+        echo MYEXT is $MYEXT
+	MYFILE="$OUTDIR/$(basename $MYFILE $MYEXT)${EXTRADOT}.pdf"
+        echo MYFILE is $MYFILE
+
+fi
+
+##lp $1  >> /tmp/groovix-web-printer.log 2>&1
+## for images or pdf use lp
+## by default images switch to landscape to make image bigger, -o orientation-requested=3 forces portrait
+##lp -o orientation-requested=3 $MYFILE  >> $LOGFILE 2>&1
+## for any office doc use loffice
+##loffice -p $1 >> /tmp/groovix-web-printer.log 2>&1
+
+echo file $MYFILE , filetype $FILETYPE , app  $DEFAULTAPP, handler  $HANDLER ,rc is  $? >> $LOGFILE 2>&1
+
+if [ "$UNSUPPORTED" = "true" ] ; then
+	RETURNSTRING="unsupported file type"
+	RETURNCODE=29
+else
+	echo $HANDLER $MYUSEROPTS $MYPRINTEROPTS $MYFILE  >> $LOGFILE 2>&1
+	#$HANDLER      $MYUSEROPTS $MYPRINTEROPTS $MYFILE  >> $LOGFILE 2>&1
+	RETURNSTRING=$($HANDLER      $MYUSEROPTS $MYPRINTEROPTS $MYFILE  2>&1)
+	RETURNCODE=$?
+	
+	if [ "$RETURNCODE" -eq 0 ] ; then
+		RETURNSTRING="Print Job Submitted: $RETURNSTRING"
+	fi
+fi
+
+# slow it down so people really it was really processed - they won't believe it was this fast for small files
+sleep 2
+
+
+echo $RETURNSTRING
+exit $RETURNCODE
+

@@ -1,0 +1,69 @@
+    1  cd try4
+    2  ls
+    3  source ./myenv/bin/activate
+    4  cd fileupload/
+    5  ./manage.py runserver 0.0.0.0:8000
+    6  cd ..
+    7  rsync -a try4/ try4-working-pre-cors/
+    8  cd try4
+    9  ls
+   10  cd fileupload/
+   11  ls
+   12  pip install django-cors-headers
+   13  vi fileupload/settings.py
+   14  ./manage.py runserver 0.0.0.0:8000
+   15  history
+   16  ./manage.py runserver 0.0.0.0:8000
+   17  cd ..
+   18  rgrep remark ./
+   19  vi ./fileupload/file_app/serializers.py ./fileupload/file_app/migrations/0001_initial.py ./fileupload/file_app/models.py
+   20  rgrep timestamp ./
+   21  history  | grep migra
+   22  ./manage.py runserver 0.0.0.0:8000
+   23  cd  fileupload/
+   24  ./manage.py runserver 0.0.0.0:8000
+   25  ./manage.py syncdb
+   26  ./manage.py makemigrations fileupload
+   27  ./manage.py makemigrations 
+   28  ./manage.py migrate
+   29  ./manage.py runserver 0.0.0.0:8000
+   30  ls
+   31  ./manage.py makemigrations 
+   32  ./manage.py makemigrations fileupload
+   33  ./manage.py makemigrations file_app/
+   34  vi file_app/*.py
+   35  ls
+   36  ls media/
+   37  ./manage.py makemigrations
+   38  cd fileupload/
+   39  vi *.py
+   40  cd ..
+   41  vi file_app/models.py
+   42  ./manage.py makemigrations
+   43  ./manage.py migrate
+   44  ./manage.py runserver 0.0.0.0:8000
+   45  rgrep groovix-web-printer ./
+   46  vi file_app/views.py
+   47  ./manage.py runserver 0.0.0.0:8000
+   48  ./manage.py makemigrations
+   49  ./manage.py migrate
+   50  ./manage.py runserver 0.0.0.0:8000
+   51  vi file_app/views.py
+   52  rgrep groovix-web-printer ./
+   53  vi file_app/views.py
+   54  ./manage.py runserver 0.0.0.0:8000
+   55  vi file_app/views.py
+   56  ./manage.py runserver 0.0.0.0:8000
+   57  ./manage.py makemigrations
+   58  ./manage.py migrate
+   59  ./manage.py runserver 0.0.0.0:8000
+   60  python manage.py shell
+   61  python manage.py createsuperuser
+   62  ./manage.py runserver 0.0.0.0:8000
+   63  python manage.py shell
+   64  ./manage.py runserver 0.0.0.0:8000
+   65  python manage.py createsuperuser
+   66  ./manage.py runserver 0.0.0.0:8000
+   67  python manage.py createsuperuser
+   68  ./manage.py runserver 0.0.0.0:8000
+   69  history > ../setup.history
